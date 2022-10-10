@@ -10,7 +10,7 @@ License: GNU GPL v3
 
 1. [Description](#Description)
 2. [Demo](#Demo)
-3. [How to use](#How to use)
+3. [How-to-use](#How-to-use)
 
 
 ## Description
@@ -46,7 +46,7 @@ Time delays (ΔT) and novelty detection errors at different detection thresholds
 
 ![img_3.png](img_3.png)
 
-## How to use
+## How-to-use
 
 1. Install Python 3.8
 2. Install requirements (see requirements.txt)
