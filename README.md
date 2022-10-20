@@ -4,11 +4,12 @@ This program implements the neural network of V.Y. Osipov (https://doi.org/10.10
 
 The project is developed and maintained by the research team, which is a part of the Research Center "Strong Artificial Intelligence in Industry" (ITMO University)
 Site: https://sai.itmo.ru/
-![img4.png](img4.png)
 
 Author - Dmitriy Miloserdov (SPC RAS). 
 
 License: GNU GPL v3
+
+![img4.png](img4.png)
 
 ## Contents
 
