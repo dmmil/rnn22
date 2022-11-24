@@ -64,6 +64,8 @@ It is recommended to run the project in the PyCharm environment. Running in othe
 ## Bibliography
 
 [1] https://doi.org/10.1016/j.neucom.2018.05.009
+
 [2] https://doi.org/10.1007/s00521-020-04843-5
+
 [3] https://doi.org/10.1016/j.eswa.2020.114521
 
