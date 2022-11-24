@@ -19,6 +19,7 @@ License: GNU GPL v3
 
 
 ## Description
+This library is designed for intelligent processing of text streams, including recognition, recovery, prediction and synthesis. It can be used to support management decisions in various fields of activity related to understanding and analyzing the content of information events, for example, in marketing, public safety, urban management and others.
 The component implementing the algorithm for modeling n-instances of a neural network with controlled elements includes instances of neural networks RNN-1 and RNN-2, which are instances of the Rnn12Core class, control units of these RNNs, whose functions are also implemented in the Rnn12Core class. In addition, RNN-1 and RNN-2 contain structures of the parameters of the functioning of the system as a whole (CommonParams) and RNN in particular (RnnParams). There is also a common GUI, an instance of the GUI class as part of CommonParams.
 ![img_1.png](img_1.png)
 The input and output data of the component are aggregates of single pulses, which are arrays of binary data of size d×q×K, where d, q are the dimensions of the logical field of the RNN, K is the number of SSP in the sample.
