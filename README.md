@@ -1,6 +1,6 @@
 # Neural network system for forecasting and novelty filtering in text data
 
-This program implements the neural network of V.Y. Osipov (https://doi.org/10.1016/j.neucom.2018.05.009) and implements the functionality described in the articles (https://doi.org/10.1007/s00521-020-04843-5, https://doi.org/10.1016/j.eswa.2020.114521 )
+This program implements the neural network [1] and implements the functionality described in the articles [2, 3]. On top of this, within the Research Center, new rules for associative interaction of signals in the RNN and neural network management have been developed and implemented programmatically, allowing both to predict the content of news and to evaluate and highlight novelty from text news streams. A new criterion for the novelty of texts processed in the RNN has been implemented.
 
 The project is developed and maintained by the research team, which is a part of the Research Center "Strong Artificial Intelligence in Industry" (ITMO University)
 Site: https://sai.itmo.ru/
@@ -16,6 +16,7 @@ License: GNU GPL v3
 1. [Description](#Description)
 2. [Demo](#Demo)
 3. [How-to-use](#How-to-use)
+4. [Bibliography](#Bibliography)
 
 
 ## Description
@@ -58,3 +59,11 @@ Time delays (ΔT) and novelty detection errors at different detection thresholds
 2. Install requirements (see requirements.txt)
 3. Run main.py
 It is recommended to run the project in the PyCharm environment. Running in other environments has not been tested and may lead to the loss of paths and dependencies.
+
+
+## Bibliography
+
+[1] https://doi.org/10.1016/j.neucom.2018.05.009
+[2] https://doi.org/10.1007/s00521-020-04843-5
+[3] https://doi.org/10.1016/j.eswa.2020.114521
+
