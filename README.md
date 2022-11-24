@@ -9,7 +9,7 @@ Author - Dmitriy Miloserdov (SPC RAS).
 
 License: GNU GPL v3
 
-![docs/img4.png](docs/img4.png)
+![docs/img_4.png](docs/img_4.png)
 
 ## Contents
 
