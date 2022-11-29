@@ -7,7 +7,7 @@ Site: https://sai.itmo.ru/
 
 Author - Dmitriy Miloserdov (SPC RAS). 
 
-License: GNU GPL v3
+License: BSD-3
 
 ![docs/img_4.png](docs/img_4.png)
 
