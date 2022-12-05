@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_12">
+     <layout class="QHBoxLayout" name="horizontalLayout_mode">
       <item>
        <widget class="QComboBox" name="comboBox_ProcessingType">
         <property name="enabled">
@@ -35,7 +35,7 @@
        </widget>
       </item>
       <item>
-       <spacer name="horizontalSpacer_16">
+       <spacer name="horizontalSpacer_processingType">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -50,11 +50,11 @@
      </layout>
     </item>
     <item>
-     <layout class="QGridLayout" name="gridLayout_2">
+     <layout class="QGridLayout" name="gridLayout_modeParams">
       <item row="3" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <layout class="QHBoxLayout" name="horizontalLayout_novelty">
         <item>
-         <widget class="QLabel" name="label_18">
+         <widget class="QLabel" name="label_NovFilt">
           <property name="text">
            <string>Novelty filtering with weights gain</string>
           </property>
@@ -71,7 +71,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_5">
+         <widget class="QLabel" name="label_DetectBorder">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
             <horstretch>0</horstretch>
@@ -91,7 +91,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_24">
+         <widget class="QLabel" name="label_DetectBorderStepsPrefix">
           <property name="text">
            <string> for </string>
           </property>
@@ -105,7 +105,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_9">
+         <widget class="QLabel" name="label_DetectBorderStepsSuffix">
           <property name="enabled">
            <bool>true</bool>
           </property>
@@ -121,7 +121,7 @@
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_6">
+         <spacer name="horizontalSpacer_NovFilt">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -136,9 +136,9 @@
        </layout>
       </item>
       <item row="1" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <layout class="QHBoxLayout" name="horizontalLayout_predict">
         <item>
-         <widget class="QLabel" name="label_17">
+         <widget class="QLabel" name="label_PredictStepsNumPrefix">
           <property name="text">
            <string>Predict for:</string>
           </property>
@@ -152,7 +152,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_4">
+         <widget class="QLabel" name="label_PredictStepsNumSuffix">
           <property name="enabled">
            <bool>true</bool>
           </property>
@@ -168,7 +168,7 @@
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_5">
+         <spacer name="horizontalSpacer_PredictStepsNum">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -185,7 +185,7 @@
      </layout>
     </item>
     <item>
-     <spacer name="verticalSpacer">
+     <spacer name="verticalSpacer_Header">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
@@ -198,9 +198,9 @@
      </spacer>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_13">
+     <layout class="QHBoxLayout" name="horizontalLayout_copyButton">
       <item>
-       <spacer name="horizontalSpacer_18">
+       <spacer name="horizontalSpacer_CopyPrefix">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -223,7 +223,7 @@
        </widget>
       </item>
       <item>
-       <spacer name="horizontalSpacer_17">
+       <spacer name="horizontalSpacer_CopySuffix">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -257,11 +257,11 @@
     <number>8</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_rnn1">
-    <layout class="QVBoxLayout" name="verticalLayout_5">
+    <layout class="QVBoxLayout" name="verticalLayout_rnn1widgets">
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QHBoxLayout" name="horizontalLayout_rnn1buttons">
        <item>
-        <spacer name="horizontalSpacer">
+        <spacer name="horizontalSpacer_rnn1PanelPrefix">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
@@ -386,7 +386,7 @@
         </widget>
        </item>
        <item>
-        <spacer name="horizontalSpacer_2">
+        <spacer name="horizontalSpacer_rnn1PanelSuffix">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
@@ -409,9 +409,9 @@
         <attribute name="title">
          <string>RNN1 params</string>
         </attribute>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
+        <layout class="QVBoxLayout" name="verticalLayout_tabrnn1">
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <layout class="QHBoxLayout" name="horizontalLayout_rnn1checkParams">
            <item>
             <widget class="QCheckBox" name="rnn1_flag_learn">
              <property name="enabled">
@@ -445,7 +445,7 @@
             </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer_8">
+            <spacer name="horizontalSpacer_rnn1CheckBoxes">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -460,9 +460,9 @@
           </layout>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <layout class="QHBoxLayout" name="horizontalLayout_rnn1bParams">
            <item>
-            <widget class="QLabel" name="label_3">
+            <widget class="QLabel" name="label_rnn1alpha">
              <property name="text">
               <string>alpha:</string>
              </property>
@@ -476,7 +476,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_6">
+            <widget class="QLabel" name="label_rnn1h">
              <property name="text">
               <string>h: </string>
              </property>
@@ -490,7 +490,7 @@
             </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer_7">
+            <spacer name="horizontalSpacer_rnn1BetaParams">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -505,9 +505,9 @@
           </layout>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_11">
+          <layout class="QHBoxLayout" name="horizontalLayout_rnn1kParams">
            <item>
-            <widget class="QLabel" name="label_2">
+            <widget class="QLabel" name="label_gInc">
              <property name="text">
               <string>gInc: </string>
              </property>
@@ -524,7 +524,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_21">
+            <widget class="QLabel" name="label_gDec">
              <property name="text">
               <string>gDec: </string>
              </property>
@@ -544,7 +544,7 @@
             </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer_15">
+            <spacer name="horizontalSpacer_rnn1KParams">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -559,7 +559,7 @@
           </layout>
          </item>
          <item>
-          <layout class="QGridLayout" name="gridLayout">
+          <layout class="QGridLayout" name="gridLayout_rnn1borderParams">
            <item row="1" column="0">
             <widget class="QComboBox" name="rnn1_borderType">
              <item>
@@ -575,7 +575,7 @@
             </widget>
            </item>
            <item row="2" column="2">
-            <widget class="QLabel" name="label_12">
+            <widget class="QLabel" name="label_rnn1cbValue">
              <property name="text">
               <string>Value:</string>
              </property>
@@ -592,14 +592,14 @@
             </widget>
            </item>
            <item row="0" column="0">
-            <widget class="QLabel" name="label_11">
+            <widget class="QLabel" name="label_rnn1border">
              <property name="text">
               <string>Excitation border:</string>
              </property>
             </widget>
            </item>
            <item row="2" column="4">
-            <spacer name="horizontalSpacer_13">
+            <spacer name="horizontalSpacer_rnn1cbSpacer">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -612,21 +612,21 @@
             </spacer>
            </item>
            <item row="2" column="0">
-            <widget class="QLabel" name="label_15">
+            <widget class="QLabel" name="label_rnn1constBorder">
              <property name="text">
               <string>Const border:</string>
              </property>
             </widget>
            </item>
            <item row="3" column="0">
-            <widget class="QLabel" name="label_19">
+            <widget class="QLabel" name="label_rnn1concurrentBorder">
              <property name="text">
               <string>Concurrent border:</string>
              </property>
             </widget>
            </item>
            <item row="3" column="2">
-            <widget class="QLabel" name="label_20">
+            <widget class="QLabel" name="label_rnn1numWinners">
              <property name="text">
               <string>Num of winners:</string>
              </property>
@@ -642,9 +642,9 @@
           </layout>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <layout class="QHBoxLayout" name="horizontalLayout_inputData">
            <item>
-            <widget class="QLabel" name="label">
+            <widget class="QLabel" name="label_InputData">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                <horstretch>0</horstretch>
@@ -664,7 +664,7 @@
             </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer_3">
+            <spacer name="horizontalSpacer_inputData">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -686,7 +686,7 @@
           </widget>
          </item>
          <item>
-          <spacer name="verticalSpacer_2">
+          <spacer name="verticalSpacer_rnn1params">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
@@ -704,7 +704,7 @@
         <attribute name="title">
          <string>1st layer</string>
         </attribute>
-        <layout class="QVBoxLayout" name="verticalLayout_3">
+        <layout class="QVBoxLayout" name="verticalLayout_tabrnn1lr1">
          <item>
           <widget class="QGraphicsView" name="graphicsView_rnn1_lr1"/>
          </item>
@@ -714,7 +714,7 @@
         <attribute name="title">
          <string>2nd layer</string>
         </attribute>
-        <layout class="QVBoxLayout" name="verticalLayout_4">
+        <layout class="QVBoxLayout" name="verticalLayout_tabrnn1lr2">
          <item>
           <widget class="QGraphicsView" name="graphicsView_rnn1_lr2"/>
          </item>
@@ -742,11 +742,11 @@
     <number>8</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_2">
-    <layout class="QVBoxLayout" name="verticalLayout_8">
+    <layout class="QVBoxLayout" name="verticalLayout_tabrnn2">
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <layout class="QHBoxLayout" name="horizontalLayout_rnn2buttons">
        <item>
-        <spacer name="horizontalSpacer_12">
+        <spacer name="horizontalSpacer_rnn2PanelPrefix">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
@@ -815,7 +815,7 @@
         </widget>
        </item>
        <item>
-        <spacer name="horizontalSpacer_4">
+        <spacer name="horizontalSpacer_rnn2PanelSuffix">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
@@ -838,11 +838,11 @@
         <attribute name="title">
          <string>RNN2 params</string>
         </attribute>
-        <layout class="QVBoxLayout" name="verticalLayout_9">
+        <layout class="QVBoxLayout" name="verticalLayout_rnn2prms">
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_10">
+          <layout class="QHBoxLayout" name="horizontalLayout_rnn2checkParams">
            <item>
-            <spacer name="horizontalSpacer_10">
+            <spacer name="horizontalSpacer_rnn2CheckBoxes">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -857,9 +857,9 @@
           </layout>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_9">
+          <layout class="QHBoxLayout" name="horizontalLayout_rnn2kParams">
            <item>
-            <widget class="QLabel" name="label_8">
+            <widget class="QLabel" name="label_rnn2alpha">
              <property name="text">
               <string>alpha:</string>
              </property>
@@ -876,7 +876,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_7">
+            <widget class="QLabel" name="label_rnn2h">
              <property name="text">
               <string>h: </string>
              </property>
@@ -893,7 +893,7 @@
             </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer_9">
+            <spacer name="horizontalSpacer_rnn2BetaParams">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -908,16 +908,16 @@
           </layout>
          </item>
          <item>
-          <layout class="QGridLayout" name="gridLayout_3">
+          <layout class="QGridLayout" name="gridLayout_rnn2borderParams">
            <item row="0" column="0">
-            <widget class="QLabel" name="label_13">
+            <widget class="QLabel" name="label_rnn2border">
              <property name="text">
               <string>Excitation border:</string>
              </property>
             </widget>
            </item>
            <item row="2" column="0">
-            <widget class="QLabel" name="label_16">
+            <widget class="QLabel" name="label_rnn2constBorder">
              <property name="text">
               <string>Const border:</string>
              </property>
@@ -938,7 +938,7 @@
             </widget>
            </item>
            <item row="2" column="4">
-            <spacer name="horizontalSpacer_14">
+            <spacer name="horizontalSpacer_rnn2cbSpacer">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -951,7 +951,7 @@
             </spacer>
            </item>
            <item row="2" column="2">
-            <widget class="QLabel" name="label_14">
+            <widget class="QLabel" name="label_rnn2cbValue">
              <property name="text">
               <string>Value:</string>
              </property>
@@ -968,14 +968,14 @@
             </widget>
            </item>
            <item row="3" column="0">
-            <widget class="QLabel" name="label_22">
+            <widget class="QLabel" name="label_rnn2concurrentBorder">
              <property name="text">
               <string>Concurrent border:</string>
              </property>
             </widget>
            </item>
            <item row="3" column="2">
-            <widget class="QLabel" name="label_23">
+            <widget class="QLabel" name="label_rnn2numWinnders">
              <property name="text">
               <string>Num of winners:</string>
              </property>
@@ -998,7 +998,7 @@
           </widget>
          </item>
          <item>
-          <spacer name="verticalSpacer_3">
+          <spacer name="verticalSpacer_rnn2params">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
@@ -1016,7 +1016,7 @@
         <attribute name="title">
          <string>1st layer</string>
         </attribute>
-        <layout class="QVBoxLayout" name="verticalLayout_6">
+        <layout class="QVBoxLayout" name="verticalLayout_tabrnn2lr1">
          <item>
           <widget class="QGraphicsView" name="graphicsView_rnn2_lr1"/>
          </item>
@@ -1026,7 +1026,7 @@
         <attribute name="title">
          <string>2nd layer</string>
         </attribute>
-        <layout class="QVBoxLayout" name="verticalLayout_7">
+        <layout class="QVBoxLayout" name="verticalLayout_tabrnn2lr2">
          <item>
           <widget class="QGraphicsView" name="graphicsView_rnn2_lr2"/>
          </item>

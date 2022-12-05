@@ -42,12 +42,15 @@ class Rnn1Core(AbstractRnnCore):
         self.copied = False
 
         self.cntr = 0
+        self.novelty_state = dict()
+        self.novelty_plot_data = []
 
         self.to_day_str = None
 
     def start_process_signals(self):
         self.cntr = 0
         self.weights_history = []
+        self.novelty_plot_data = []
         self.last_iterator_value = -1
         today = datetime.datetime.today()
         self.to_day_str = today.strftime("%Y-%m-%d-%H-%M-%S")
@@ -62,6 +65,7 @@ class Rnn1Core(AbstractRnnCore):
                 del self.ssps_history[0]
                 del self.neu_states_history[0]
 
+
     def finish_process_signals(self):
         super(Rnn1Core, self).finish_process_signals()
 
@@ -70,6 +74,7 @@ class Rnn1Core(AbstractRnnCore):
         if self.common_params.processing_type == 'Novelty filter' and len(
                 self.weights_history):
             self.signalPlot.emit(self.weights_history)
+            self.novelty_plot_data = np.copy(self.weights_history)
             self.weights_history = []
 
     def copy_model(self):
@@ -88,6 +93,7 @@ class Rnn1Core(AbstractRnnCore):
         if self.common_params.continuous_mode:
             self.signalNextTact.disconnect(self.process_signals)
         self.signalModel.emit(model_dict)
+        return model_dict
 
     def rnn2finished(self):
         self.copied = False
@@ -202,7 +208,7 @@ class Rnn1Core(AbstractRnnCore):
                         if np.sum(self.neu_states[src_route_index, :, :] == 0):
 
                             if self.common_params.processing_type != \
-                                    'Novelty filter':  # temporary solution!!!
+                                    'Novelty filter':
                                 self.snp_g[src_route_index,
                                            self.neu_states[src_route_index,
                                                            :,
@@ -231,7 +237,7 @@ class Rnn1Core(AbstractRnnCore):
                         # if src neu start refract (was active)
                         if np.sum(self.neu_states[src_route_index, :, :] == 1):
                             if self.common_params.processing_type != \
-                                    'Novelty filter':  # temporary solution!!!
+                                    'Novelty filter':
                                 self.snp_g[src_route_index,
                                            self.neu_states[src_route_index,
                                                            :,
@@ -289,6 +295,9 @@ class Rnn1Core(AbstractRnnCore):
                 self.signal_autoCopy.emit()
 
     def analyze_weights_history_dynamics(self, changed_snps_matrix):
+
+        self.novelty_state = dict()
+
         if len(self.weights_history) <= \
                 self.common_params.initHistoryPeriod + 1:
             return
@@ -331,6 +340,7 @@ class Rnn1Core(AbstractRnnCore):
         if self.common_params.continuous_mode:
             self.signalNextTact.disconnect(self.process_signals)
         self.signalModel.emit(model_dict)
+        self.novelty_state = model_dict.copy()
 
     def refresh_params(self, params: str):
         super(Rnn1Core, self).refresh_params(params)
