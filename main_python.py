@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import argparse
 
 
+# main class, python api using example
 class Main:
 
     def __init__(self, proc_type, settings_common_file_path,
@@ -47,6 +48,7 @@ class Main:
 
 if __name__ == '__main__':
 
+    # parse args from command line
     parser = argparse.ArgumentParser()
     parser.add_argument('--mode', default='Novelty',
                         help='mode of system funtioning: Predict/Novelty')
@@ -65,22 +67,25 @@ if __name__ == '__main__':
         # process rnn1
         ok = True
         while ok:
-            ok = app.rnn1.process_signals()
+            ok = app.rnn1.process_signals()  # working tact of rnn processing
 
+            # for example, we want to predict for tacts 35, 40, 45
             if app.rnn1.cntr == 35 * 4 or app.rnn1.cntr == 40 * 4 \
                     or app.rnn1.cntr == 45 * 4:
-                # copy model
+                # copy rnn1 state to rnn2
                 app.rnn2.paste_model(app.rnn1_to_rnn2(app.rnn1.copy_model()))
 
                 # process rnn2
                 ok2 = True
                 while ok2:
+                    # while data on rnn2 layers
                     ok2 = app.rnn2.process_signals()
+                # analyze results of processing
                 app.rnn2.finish_process_signals()
 
                 # info about rnn2 finished, then can continue
                 app.rnn1.rnn2finished()
-        app.rnn1.finish_process_signals()
+        app.rnn1.finish_process_signals()  # analyze results of processing
 
     elif vv['mode'] == 'Novelty':
         app = Main('Novelty filter',
@@ -97,7 +102,7 @@ if __name__ == '__main__':
             ok = app.rnn1.process_signals()
 
             if len(app.rnn1.novelty_state.keys()):
-                # copy model
+                # copy rnn1 state to rnn2
                 app.rnn2.paste_model(app.rnn1_to_rnn2(app.rnn1.novelty_state))
 
                 # process rnn2

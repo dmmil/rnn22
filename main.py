@@ -11,6 +11,7 @@ from Core.Params import CommonParams, Rnn1Params, Rnn2Params
 import matplotlib.pyplot as plt
 
 
+# graphical interface
 class GUI(QtWidgets.QMainWindow):
 
     signalRnn1ParamsChanged = pyqtSignal(str)
@@ -50,24 +51,8 @@ class GUI(QtWidgets.QMainWindow):
         if self.params.draw_layers:
             self.init_visualization_module(params)
 
-        # connecting
-        self.ui.comboBox_ProcessingType.setCurrentText(
-            self.params.processing_type)
-        self.ui.predictStepsNum.setValue(self.params.predictStepsNum)
-        self.ui.novFiltWeightsGain.setValue(self.params.novFiltWeightsGain)
-        self.ui.novFiltDetectBorder.setValue(self.params.novFiltDetectBorder)
-        self.ui.novFiltStepsNum.setValue(self.params.novFiltStepsNum)
-        self.ui.comboBox_ProcessingType.currentTextChanged.connect(
-            self.processing_params_changed)
-        self.ui.predictStepsNum.valueChanged.connect(
-            self.processing_params_changed)
-        self.ui.novFiltWeightsGain.valueChanged.connect(
-            self.processing_params_changed)
-        self.ui.novFiltDetectBorder.valueChanged.connect(
-            self.processing_params_changed)
-        self.ui.novFiltStepsNum.valueChanged.connect(
-            self.processing_params_changed)
-        self.processing_params_changed()
+        # connect common params widgets values and connections
+        self.set_common_params_widgets_connections()
 
         self.ui.pushButton_CopyModel.clicked.connect(
             self.rnn1.copy_model, QtCore.Qt.QueuedConnection)
@@ -85,64 +70,11 @@ class GUI(QtWidgets.QMainWindow):
             self.ui.pushButton_rnn1_next.setEnabled(False)
             self.ui.pushButton_rnn2_next.setEnabled(False)
 
-        self.ui.rnn1_alpha.setValue(self.rnn1.rnn_params.alpha)
-        self.ui.rnn1_h.setValue(self.rnn1.rnn_params.h)
-        self.ui.rnn1_gInc.setValue(self.rnn1.rnn_params.gInc)
-        self.ui.rnn1_gDec.setValue(self.rnn1.rnn_params.gDec)
-        self.ui.rnn1_flag_learn.setChecked(
-            self.rnn1.rnn_params.flag_learning)
-        self.ui.rnn1_flag_clear_learning.setChecked(
-            self.rnn1.rnn_params.flag_clear_learning)
-        self.ui.rnn1_input_data_file_path.setText(
-            self.rnn1.rnn_params.input_data_filename)
-        self.ui.rnn1_borderType.setCurrentText(
-            self.rnn1.rnn_params.border_type)
-        self.ui.rnn1_borderConstValue.setValue(
-            self.rnn1.rnn_params.border_Const_value)
-        self.ui.rnn1_borderConcurrentWinners.setValue(
-            self.rnn1.rnn_params.border_Concurrent_winners)
+        # connect rnn1 params widgets values and connections
+        self.set_rnn1_params_widgets_connections()
 
-        self.ui.pushButton_rnn1_refreshParams.clicked.connect(
-            self.refresh_rnn_params, QtCore.Qt.QueuedConnection)
-        self.signalRnn1ParamsChanged.connect(
-            lambda a1: self.rnn1.refresh_params(a1),
-            QtCore.Qt.QueuedConnection)
-
-        self.ui.pushButton_rnn1_begin.clicked.connect(
-            self.rnn1.start_process_signals, QtCore.Qt.QueuedConnection)
-        self.ui.pushButton_rnn1_next.clicked.connect(
-            self.rnn1.process_signals, QtCore.Qt.QueuedConnection)
-        self.ui.pushButton_rnn1_end.clicked.connect(
-            self.rnn1.finish_process_signals, QtCore.Qt.QueuedConnection)
-        self.ui.pushButton_rnn1_clear.clicked.connect(
-            self.rnn1.clear_rnn, QtCore.Qt.QueuedConnection)
-
-        self.ui.pushButton_rnn2_next.clicked.connect(
-            self.rnn2.process_signals, QtCore.Qt.QueuedConnection)
-        self.ui.pushButton_rnn2_end.clicked.connect(
-            self.rnn2.finish_process_signals, QtCore.Qt.QueuedConnection)
-
-        self.ui.rnn2_alpha.setValue(self.rnn2.rnn_params.alpha)
-        self.ui.rnn2_h.setValue(self.rnn2.rnn_params.h)
-        self.ui.rnn2_borderType.setCurrentText(
-            self.rnn2.rnn_params.border_type)
-        self.ui.rnn2_borderConstValue.setValue(
-            self.rnn2.rnn_params.border_Const_value)
-        self.ui.rnn2_borderConcurrentWinners.setValue(
-            self.rnn2.rnn_params.border_Concurrent_winners)
-
-        self.ui.pushButton_rnn2_refreshParams.clicked.connect(
-            self.refresh_rnn_params, QtCore.Qt.QueuedConnection)
-        self.signalRnn2ParamsChanged.connect(
-            lambda a1: self.rnn2.refresh_params(a1),
-            QtCore.Qt.QueuedConnection)
-
-        self.signalRnn1ProcessingParamsChanged.connect(
-            lambda a1: self.rnn1.refresh_processing_params(a1),
-            QtCore.Qt.QueuedConnection)
-        self.signalRnn2ProcessingParamsChanged.connect(
-            lambda a1: self.rnn2.refresh_processing_params(a1),
-            QtCore.Qt.QueuedConnection)
+        # connect rnn2 params widgets values and connections
+        self.set_rnn2_params_widgets_connections()
 
         self.rnn1.signalPlot.connect(lambda a1: self.plot_local(a1))
 
@@ -308,6 +240,87 @@ class GUI(QtWidgets.QMainWindow):
         self.params.novFiltWeightsGain = self.ui.novFiltWeightsGain.value()
         self.params.novFiltDetectBorder = self.ui.novFiltDetectBorder.value()
         self.params.novFiltStepsNum = self.ui.novFiltStepsNum.value()
+
+    def set_common_params_widgets_connections(self):
+        self.ui.comboBox_ProcessingType.setCurrentText(
+            self.params.processing_type)
+        self.ui.predictStepsNum.setValue(self.params.predictStepsNum)
+        self.ui.novFiltWeightsGain.setValue(self.params.novFiltWeightsGain)
+        self.ui.novFiltDetectBorder.setValue(self.params.novFiltDetectBorder)
+        self.ui.novFiltStepsNum.setValue(self.params.novFiltStepsNum)
+        self.ui.comboBox_ProcessingType.currentTextChanged.connect(
+            self.processing_params_changed)
+        self.ui.predictStepsNum.valueChanged.connect(
+            self.processing_params_changed)
+        self.ui.novFiltWeightsGain.valueChanged.connect(
+            self.processing_params_changed)
+        self.ui.novFiltDetectBorder.valueChanged.connect(
+            self.processing_params_changed)
+        self.ui.novFiltStepsNum.valueChanged.connect(
+            self.processing_params_changed)
+        self.processing_params_changed()
+
+    def set_rnn1_params_widgets_connections(self):
+        self.ui.rnn1_alpha.setValue(self.rnn1.rnn_params.alpha)
+        self.ui.rnn1_h.setValue(self.rnn1.rnn_params.h)
+        self.ui.rnn1_gInc.setValue(self.rnn1.rnn_params.gInc)
+        self.ui.rnn1_gDec.setValue(self.rnn1.rnn_params.gDec)
+        self.ui.rnn1_flag_learn.setChecked(
+            self.rnn1.rnn_params.flag_learning)
+        self.ui.rnn1_flag_clear_learning.setChecked(
+            self.rnn1.rnn_params.flag_clear_learning)
+        self.ui.rnn1_input_data_file_path.setText(
+            self.rnn1.rnn_params.input_data_filename)
+        self.ui.rnn1_borderType.setCurrentText(
+            self.rnn1.rnn_params.border_type)
+        self.ui.rnn1_borderConstValue.setValue(
+            self.rnn1.rnn_params.border_Const_value)
+        self.ui.rnn1_borderConcurrentWinners.setValue(
+            self.rnn1.rnn_params.border_Concurrent_winners)
+
+        self.ui.pushButton_rnn1_refreshParams.clicked.connect(
+            self.refresh_rnn_params, QtCore.Qt.QueuedConnection)
+        self.signalRnn1ParamsChanged.connect(
+            lambda a1: self.rnn1.refresh_params(a1),
+            QtCore.Qt.QueuedConnection)
+
+        self.ui.pushButton_rnn1_begin.clicked.connect(
+            self.rnn1.start_process_signals, QtCore.Qt.QueuedConnection)
+        self.ui.pushButton_rnn1_next.clicked.connect(
+            self.rnn1.process_signals, QtCore.Qt.QueuedConnection)
+        self.ui.pushButton_rnn1_end.clicked.connect(
+            self.rnn1.finish_process_signals, QtCore.Qt.QueuedConnection)
+        self.ui.pushButton_rnn1_clear.clicked.connect(
+            self.rnn1.clear_rnn, QtCore.Qt.QueuedConnection)
+
+        self.signalRnn1ProcessingParamsChanged.connect(
+            lambda a1: self.rnn1.refresh_processing_params(a1),
+            QtCore.Qt.QueuedConnection)
+
+    def set_rnn2_params_widgets_connections(self):
+        self.ui.pushButton_rnn2_next.clicked.connect(
+            self.rnn2.process_signals, QtCore.Qt.QueuedConnection)
+        self.ui.pushButton_rnn2_end.clicked.connect(
+            self.rnn2.finish_process_signals, QtCore.Qt.QueuedConnection)
+
+        self.ui.rnn2_alpha.setValue(self.rnn2.rnn_params.alpha)
+        self.ui.rnn2_h.setValue(self.rnn2.rnn_params.h)
+        self.ui.rnn2_borderType.setCurrentText(
+            self.rnn2.rnn_params.border_type)
+        self.ui.rnn2_borderConstValue.setValue(
+            self.rnn2.rnn_params.border_Const_value)
+        self.ui.rnn2_borderConcurrentWinners.setValue(
+            self.rnn2.rnn_params.border_Concurrent_winners)
+
+        self.ui.pushButton_rnn2_refreshParams.clicked.connect(
+            self.refresh_rnn_params, QtCore.Qt.QueuedConnection)
+        self.signalRnn2ParamsChanged.connect(
+            lambda a1: self.rnn2.refresh_params(a1),
+            QtCore.Qt.QueuedConnection)
+
+        self.signalRnn2ProcessingParamsChanged.connect(
+            lambda a1: self.rnn2.refresh_processing_params(a1),
+            QtCore.Qt.QueuedConnection)
 
     def init_visualization_module(self, params):
         self.graph_scene_rnn1_lr1 = GraphScene(
