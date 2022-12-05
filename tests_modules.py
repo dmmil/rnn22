@@ -29,6 +29,7 @@ def test_answer():
     elif params.processing_type == 'Novelty filter':
         m['processing_type'] = 'Novelty filter'
         m['novFiltStepsNum'] = params.novFiltStepsNum
+    rnn2.paste_model(m)
     rnn2.process_signals()
     rnn2.finish_process_signals()
     rnn2.clear_layers()
