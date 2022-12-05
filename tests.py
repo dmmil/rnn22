@@ -21,7 +21,7 @@ def test_answer():
             app.rnn2.paste_model(app.rnn1_to_rnn2(app.rnn1.copy_model()))
 
             # process rnn2
-            ok2 = True
+            ok2 = True2
             while ok2:
                 ok2 = app.rnn2.process_signals()
             app.rnn2.finish_process_signals()
