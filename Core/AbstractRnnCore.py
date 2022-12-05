@@ -357,15 +357,3 @@ class AbstractRnnCore(QtCore.QObject):
             params['border_Concurrent_winners']
 
         self.rnn_params.rewrite()
-
-    def get_rnn_state(self):
-        model_dict = dict()
-        model_dict['io_device'] = self.io_device.get_io_device_state()
-        model_dict['io_device']['mode'] = self.common_params.processing_type
-        model_dict['SSPs'] = self.SSPs
-        model_dict['sspTact'] = self.sspTact
-        model_dict['neu_states'] = np.copy(self.neu_states)
-        model_dict['to_day_str'] = self.to_day_str
-        if hasattr(self, 'snp_k'):
-            model_dict['snp_k'] = np.copy(self.snp_k)
-        return model_dict
