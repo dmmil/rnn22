@@ -15,8 +15,9 @@ License: BSD-3
 
 1. [Description](#Description)
 2. [Demo](#Demo)
-3. [How-to-use](#How-to-use)
-4. [Bibliography](#Bibliography)
+3. [How-to-use-from-gui](#How-to-use-from-gui)
+4. [How-to-use-from-python](#How-to-use-from-python)
+5. [Bibliography](#Bibliography)
 
 
 ## Description
@@ -55,13 +56,26 @@ Time delays (ΔT) and novelty detection errors at different detection thresholds
 
 ![docs/img_3.png](docs/img_3.png)
 
-## How-to-use
+## How-to-use-from-gui
 
 1. Install Python 3.8
 2. Install requirements (see requirements.txt)
 3. Run main.py
 It is recommended to run the project in the PyCharm environment. Running in other environments has not been tested and may lead to the loss of paths and dependencies.
 
+## How-to-use-from-python
+
+You can run the library functions without a graphical interface, via the command line. To do this, enter the command:
+
+python main_python.py --mode Novelty
+
+if you want to run library in novelty filtering processing type, and:
+
+python main_python.py --mode Predict
+
+for run in predict processing type. This examples got settings files from folders "example_data_noveltyFiltering" and "example_data_forecasting", respectively.
+
+In addition, the main_python.py file is also an example of using the python API of the proposed library. The functions and variables of the python API are described in more detail in the corresponding wiki section of the documentation for this project.
 
 ## Bibliography
 
