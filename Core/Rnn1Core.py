@@ -56,6 +56,7 @@ class Rnn1Core(AbstractRnnCore):
         self.to_day_str = today.strftime("%Y-%m-%d-%H-%M-%S")
         super(Rnn1Core, self).start_process_signals()
 
+    # analyze and prepend data for novelty filtering in rnn2
     def analyze_rnn_state(self):
         if self.common_params.processing_type == 'Novelty filter':
             self.ssps_history.append(self.SSPs.copy())
@@ -64,7 +65,6 @@ class Rnn1Core(AbstractRnnCore):
                     self.ssps_history) > self.common_params.rnn2DelayNumTacts:
                 del self.ssps_history[0]
                 del self.neu_states_history[0]
-
 
     def finish_process_signals(self):
         super(Rnn1Core, self).finish_process_signals()
@@ -294,6 +294,7 @@ class Rnn1Core(AbstractRnnCore):
                     self.cntr == 45 * 4:
                 self.signal_autoCopy.emit()
 
+    # analyze novelty state and copy model, if novelty exceeds border
     def analyze_weights_history_dynamics(self, changed_snps_matrix):
 
         self.novelty_state = dict()

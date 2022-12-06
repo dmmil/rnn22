@@ -10,6 +10,7 @@ import math
 vexp = np.vectorize(math.exp)
 
 
+# abstract class with general RNN functionality
 class AbstractRnnCore(QtCore.QObject):
     signalVisualize = pyqtSignal(np.ndarray)
     signalClearVisualize = pyqtSignal()

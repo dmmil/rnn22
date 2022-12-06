@@ -58,6 +58,7 @@ class Rnn2Core(AbstractRnnCore):
     def analyze_rnn_state(self):
         pass
 
+    # get copied rnn1 state
     def paste_model(self, model_dict):
 
         self.flag_processing = True

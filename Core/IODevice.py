@@ -5,6 +5,7 @@ from Support.words_support import convert_input_to_ssps, \
     convert_words_to_ssps, words_pe0_pe1
 
 
+# abstract class with general io-device functionality
 class AbstractIODevice:
 
     def __init__(self, d: int, q: int):
@@ -63,6 +64,7 @@ class AbstractIODevice:
             (self.iterator + num) * self.d * self.q, len(self.input_sample))]
 
 
+# class for read and process text data in RNNs
 class WordConnectionsIODevice(AbstractIODevice):
 
     def __init__(self, d: int, q: int):

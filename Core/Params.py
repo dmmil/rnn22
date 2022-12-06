@@ -4,6 +4,7 @@ import json
 import numpy as np
 
 
+# general params of library functional
 class CommonParams:
     def __init__(self, file_path):
         self.file_path = file_path
@@ -105,6 +106,7 @@ class CommonParams:
             self.config.write(config_file)
 
 
+# params for rnn core functional
 class RnnParams:
     def __init__(self, file_path: str, common_params):
         self.file_path = file_path
