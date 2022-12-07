@@ -2,7 +2,7 @@ import json
 import numpy as np
 
 from PyQt5 import QtCore
-from Core.Params import CommonParams
+from Core.Params import CommonParams, RnnParams
 from Core.SupportFunctions import init_route
 from PyQt5.QtCore import pyqtSignal
 import math
@@ -17,7 +17,7 @@ class AbstractRnnCore(QtCore.QObject):
     signalNextTact = pyqtSignal()
     signalModel = pyqtSignal(dict)
 
-    def __init__(self, common_params: CommonParams, rnn_params):
+    def __init__(self, common_params: CommonParams, rnn_params: RnnParams):
         super(AbstractRnnCore, self).__init__()
 
         self.SSPs = None

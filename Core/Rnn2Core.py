@@ -1,15 +1,16 @@
 from Core.AbstractRnnCore import AbstractRnnCore
 from PyQt5.QtCore import pyqtSignal
-from Core.Params import CommonParams
+from Core.Params import CommonParams, RnnParams
 from Core.IODevice import WordConnectionsIODevice
 import numpy as np
+from typing import Dict
 
 
 class Rnn2Core(AbstractRnnCore):
 
     signalFinished = pyqtSignal()
 
-    def __init__(self, common_params: CommonParams, rnn_params):
+    def __init__(self, common_params: CommonParams, rnn_params: RnnParams):
         super(Rnn2Core, self).__init__(common_params, rnn_params)
 
         self.io_device = WordConnectionsIODevice(self.common_params.d,
@@ -59,7 +60,7 @@ class Rnn2Core(AbstractRnnCore):
         pass
 
     # get copied rnn1 state
-    def paste_model(self, model_dict):
+    def paste_model(self, model_dict: Dict):
 
         self.flag_processing = True
 

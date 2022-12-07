@@ -3,7 +3,7 @@ from PyQt5 import QtCore, QtWidgets
 
 class Ui_MainWindow(object):
 
-    def setSizePolicy(self, object, h, v):
+    def setSizePolicy(self, object: QtWidgets.QWidget, h: QtWidgets.QSizePolicy, v: QtWidgets.QSizePolicy):
         sizePolicy = QtWidgets.QSizePolicy(h, v)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)

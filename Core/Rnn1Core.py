@@ -7,6 +7,7 @@ import datetime
 from PyQt5 import QtCore
 import math
 import json
+from Core.Params import CommonParams, RnnParams
 
 vexp = np.vectorize(math.exp)
 
@@ -15,7 +16,7 @@ class Rnn1Core(AbstractRnnCore):
     signalPlot = pyqtSignal(list)
     signal_autoCopy = pyqtSignal()
 
-    def __init__(self, common_params: CommonParams, rnn_params):
+    def __init__(self, common_params: CommonParams, rnn_params: RnnParams):
         super(Rnn1Core, self).__init__(common_params, rnn_params)
 
         self.io_device = WordConnectionsIODevice(
@@ -295,7 +296,7 @@ class Rnn1Core(AbstractRnnCore):
                 self.signal_autoCopy.emit()
 
     # analyze novelty state and copy model, if novelty exceeds border
-    def analyze_weights_history_dynamics(self, changed_snps_matrix):
+    def analyze_weights_history_dynamics(self, changed_snps_matrix: np.ndarray):
 
         self.novelty_state = dict()
 

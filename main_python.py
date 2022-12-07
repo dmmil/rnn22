@@ -3,6 +3,7 @@ from Core.Rnn2Core import Rnn2Core
 from Core.Params import CommonParams, Rnn1Params, Rnn2Params
 import matplotlib.pyplot as plt
 import argparse
+from typing import Dict
 
 
 # main class, python api using example
@@ -29,7 +30,7 @@ class Main:
         self.rnn2 = Rnn2Core(params, rnn2_params)
 
     # copying rnn1 state to rnn2
-    def rnn1_to_rnn2(self, rnn1_to_rnn2_data):
+    def rnn1_to_rnn2(self, rnn1_to_rnn2_data: Dict):
 
         if self.proc_type == 'Predict':
             rnn1_to_rnn2_data['processing_type'] = 'Predict'

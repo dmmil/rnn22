@@ -6,7 +6,7 @@ import numpy as np
 
 # general params of library functional
 class CommonParams:
-    def __init__(self, file_path):
+    def __init__(self, file_path: str):
         self.file_path = file_path
         if not os.path.exists(self.file_path):
             raise 'ini file not found'
@@ -108,7 +108,7 @@ class CommonParams:
 
 # params for rnn core functional
 class RnnParams:
-    def __init__(self, file_path: str, common_params):
+    def __init__(self, file_path: str, common_params: CommonParams):
         self.file_path = file_path
         if not os.path.exists(self.file_path):
             raise 'ini file not found'
@@ -175,7 +175,7 @@ class RnnParams:
 
 
 class Rnn1Params(RnnParams):
-    def __init__(self, file_path: str, common_params):
+    def __init__(self, file_path: str, common_params: CommonParams):
         super(Rnn1Params, self).__init__(file_path, common_params)
 
         self.gDec = self.config['SynapsesParams'].getfloat('gDec', 0.001)
@@ -206,7 +206,7 @@ class Rnn1Params(RnnParams):
 
 
 class Rnn2Params(RnnParams):
-    def __init__(self, file_path: str, common_params):
+    def __init__(self, file_path: str, common_params: CommonParams):
         super(Rnn2Params, self).__init__(file_path, common_params)
 
         self.flag_clear_learning = False

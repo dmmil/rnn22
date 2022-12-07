@@ -1,5 +1,7 @@
 import sys
 import json
+
+import numpy as np
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 from Core.Rnn1Core import Rnn1Core
@@ -9,6 +11,7 @@ from GUI.MainWindow import Ui_MainWindow
 from PyQt5.QtCore import pyqtSignal
 from Core.Params import CommonParams, Rnn1Params, Rnn2Params
 import matplotlib.pyplot as plt
+from typing import Dict
 
 
 # graphical interface
@@ -79,7 +82,7 @@ class GUI(QtWidgets.QMainWindow):
         self.rnn1.signalPlot.connect(lambda a1: self.plot_local(a1))
 
     # copying rnn1 state to rnn2
-    def rnn1_to_rnn2(self, rnn1_to_rnn2_data):
+    def rnn1_to_rnn2(self, rnn1_to_rnn2_data: Dict):
 
         if self.ui.comboBox_ProcessingType.currentText() == 'Predict':
             rnn1_to_rnn2_data['processing_type'] = 'Predict'
@@ -95,11 +98,11 @@ class GUI(QtWidgets.QMainWindow):
 
         self.signalDataToRnn2.emit(rnn1_to_rnn2_data)
 
-    def plot_local(self, data):
+    def plot_local(self, data: np.ndarray):
         plt.plot(data)
         plt.show()
 
-    def graphics_view_scroll_changed(self, _min, _max):
+    def graphics_view_scroll_changed(self, _min: float, _max: float):
         sender = self.sender()
         if sender == self.ui.graphicsView_rnn1_lr1.horizontalScrollBar():
             [pixel_size_height, pixel_size_wigth, coord_y, coord_x] = \
@@ -322,7 +325,7 @@ class GUI(QtWidgets.QMainWindow):
             lambda a1: self.rnn2.refresh_processing_params(a1),
             QtCore.Qt.QueuedConnection)
 
-    def init_visualization_module(self, params):
+    def init_visualization_module(self, params: CommonParams):
         self.graph_scene_rnn1_lr1 = GraphScene(
             0, params.L, params.M, params.d, params.q, self.rnn1.route)
         self.ui.graphicsView_rnn1_lr1.setScene(self.graph_scene_rnn1_lr1)

@@ -1,8 +1,8 @@
 import numpy as np
 import os
+from typing import List
 
-
-def convert_input_to_ssps(inpt):
+def convert_input_to_ssps(inpt: str):
     ssp = ''
     for i in range(len(inpt)):
         if inpt[i]:
@@ -12,7 +12,7 @@ def convert_input_to_ssps(inpt):
     return ssp
 
 
-def convert_words_to_ssps(dictionary, words):
+def convert_words_to_ssps(dictionary: List, words: str):
 
     lst = words.split('\n')
     words_splitted = []
@@ -29,7 +29,7 @@ def convert_words_to_ssps(dictionary, words):
     return ssp
 
 
-def words_pe0_pe1(real_ssps, pred_ssps, field_id, iterator, to_day_str):
+def words_pe0_pe1(real_ssps: str, pred_ssps: str, field_id: int, iterator: int, to_day_str: str):
     pe0 = []
     pe1 = []
     if not len(real_ssps) == len(pred_ssps):
