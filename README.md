@@ -83,7 +83,19 @@ In addition, the main_python.py file is also an example of using the python API 
 
 ## How-to-use-with-custom-data
 
+You can use this library to process your custom news data samples for forecasting or novelty filtering purposes.
 
+To do this, you need to define the list of words or word connections that describe the content of the data to be processed. The selection criteria depend on the task. For example, a list can be determined based on the frequency of occurrence of words (word connections), or based on the relationship to a particular topic. The list is formed in a .txt file, where each new word (word connection) is represented on a new line.
+
+Then the news texts to be processed in the neural network are filtered according to the list. A binary matrix is formed, commensurate with the list of words (word connections), in which for each element of the list the value is determined based on the presence of this element in the text under consideration. The presence of a word (word connection) in the text is assigned the value 1, and the absence is 0. The resulting sequence of zeros and ones is saved to another .txt file. It is a sequence of sets of single pulses that will be processed in neural networks.
+
+For correct processing in neural networks, it is necessary to configure the sizes of their layers so that the length of the list of words (word connections) coincides with the number of neurons in one logical field described by the RnnGeometry/d and RnnGeometry/q parameters in the settings_common.ini file, according to the following formula:
+
+list_size = d * q
+
+Then you need to select the processing mode in the MainParams/processing_type variable (Novelty filter or Predict), specify the paths to the corresponding files in the settings_rnn1.ini file in the IOParams/dictionary_filename and IOParams/input_data_filename parameters, and start data processing.
+
+For more information about the settings in the ini files, see the wiki documentation in the section named INI files structure.
 
 ## Bibliography
 
