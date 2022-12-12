@@ -1,3 +1,6 @@
+import os
+os.chdir('..')
+
 from main_python import Main
 
 

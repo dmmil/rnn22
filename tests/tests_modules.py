@@ -1,3 +1,6 @@
+import os
+os.chdir('..')
+
 from Core.Rnn1Core import Rnn1Core
 from Core.Rnn2Core import Rnn2Core
 from Core.Params import CommonParams, Rnn1Params, Rnn2Params
