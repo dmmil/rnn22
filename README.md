@@ -65,7 +65,6 @@ Time delays (ΔT) and novelty detection errors at different detection thresholds
 1. Install Python 3.8
 2. Install requirements (see requirements.txt)
 3. Run main.py
-It is recommended to run the project in the PyCharm environment. Running in other environments has not been tested and may lead to the loss of paths and dependencies.
 
 ## How-to-use-from-python
 
