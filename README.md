@@ -17,11 +17,15 @@ License: BSD-3
 2. [Demo](#Demo)
 3. [How-to-use-from-gui](#How-to-use-from-gui)
 4. [How-to-use-from-python](#How-to-use-from-python)
-5. [Bibliography](#Bibliography)
+5. [How-to-use-with-custom-data](#How-to-use-with-custom-data)
+6. [Bibliography](#Bibliography)
 
 
 ## Description
-This library is designed for intelligent processing of text streams, including recognition, recovery, prediction and synthesis. It can be used to support management decisions in various fields of activity related to understanding and analyzing the content of information events, for example, in marketing, public safety, urban management and others.
+This library is designed for intelligent processing of news text streams, including recognition, recovery, prediction and synthesis. It allows for high-quality and timely processing of news streams related to the interpretation of events, can become the basis for making forecasts, building automatic decision support systems with proactive management, and, accordingly, making important management decisions.
+
+The project structure contains a demo for familiarization with the library, which includes fully ready-to-launch examples of novelty filtering and predicting of news text streams. The examples can be run both using the GUI and using the command line. The offered software can also be used for your custom data. A description of the preparation and launch procedure is also given in the repository description and in the documentation.
+
 The component implementing the algorithm for modeling n-instances of a neural network with controlled elements includes instances of neural networks RNN-1 and RNN-2, which are instances of the Rnn12Core class, control units of these RNNs, whose functions are also implemented in the Rnn12Core class. In addition, RNN-1 and RNN-2 contain structures of the parameters of the functioning of the system as a whole (CommonParams) and RNN in particular (RnnParams). There is also a common GUI, an instance of the GUI class as part of CommonParams.
 
 ![docs/img_1.png](docs/img_1.png)
@@ -76,6 +80,10 @@ python main_python.py --mode Predict
 for run in predict processing type. This examples got settings files from folders "example_data_noveltyFiltering" and "example_data_forecasting", respectively.
 
 In addition, the main_python.py file is also an example of using the python API of the proposed library. The functions and variables of the python API are described in more detail in the corresponding wiki section of the documentation for this project.
+
+## How-to-use-with-custom-data
+
+
 
 ## Bibliography
 
