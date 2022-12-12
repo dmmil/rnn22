@@ -10,13 +10,13 @@ def test_answer():
 
     sys.path.append(os.path.join(sys.path[0], '..'))
 
-    params = CommonParams('example_data_forecasting/settings_common.ini')
+    params = CommonParams('examples/example_data_forecasting/settings_common.ini')
     params.rewrite()
 
-    rnn1_params = Rnn1Params('example_data_forecasting/settings_rnn1.ini', params)
+    rnn1_params = Rnn1Params('examples/example_data_forecasting/settings_rnn1.ini', params)
     rnn1_params.rewrite()
 
-    rnn2_params = Rnn2Params('example_data_forecasting/settings_rnn2.ini', params)
+    rnn2_params = Rnn2Params('examples/example_data_forecasting/settings_rnn2.ini', params)
     rnn2_params.rewrite()
 
     rnn1 = Rnn1Core(params, rnn1_params)

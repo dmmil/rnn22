@@ -7,9 +7,9 @@ from main_python import Main
 def test_answer():
 
     app = Main('Predict',
-               'example_data_forecasting/settings_common.ini',
-               'example_data_forecasting/settings_rnn1.ini',
-               'example_data_forecasting/settings_rnn2.ini')
+               'examples/example_data_forecasting/settings_common.ini',
+               'examples/example_data_forecasting/settings_rnn1.ini',
+               'examples/example_data_forecasting/settings_rnn2.ini')
 
     # init rnn1 processing
     app.rnn1.start_process_signals()
@@ -35,9 +35,9 @@ def test_answer():
     app.rnn1.finish_process_signals()
 
     app = Main('Novelty filter',
-               'example_data_noveltyFiltering/settings_common.ini',
-               'example_data_noveltyFiltering/settings_rnn1.ini',
-               'example_data_noveltyFiltering/settings_rnn2.ini')
+               'examples/example_data_noveltyFiltering/settings_common.ini',
+               'examples/example_data_noveltyFiltering/settings_rnn1.ini',
+               'examples/example_data_noveltyFiltering/settings_rnn2.ini')
 
     # init rnn1 processing
     app.rnn1.start_process_signals()
