@@ -1,11 +1,10 @@
 import os
 import sys
+sys.path.append(os.path.join(sys.path[0], '..'))
 from main_python import Main
 
 
 def test_answer():
-
-    sys.path.append(os.path.join(sys.path[0], '..'))
 
     app = Main('Predict',
                'example_data_forecasting/settings_common.ini',
