@@ -47,13 +47,13 @@ The detection threshold can be adjusted by the "detection border" parameter loca
 To speed up processing, you can disable the visualization of layers. To do this, set the draw_layers parameter to False in the settings_common.ini file before starting the program.
 
 Initial data:
-The source data attached to the program implements the example from the article. They are located in the example_data_noveltyFiltering folder. There are two files located there:
+The source data attached to the program implements the example from the article. They are located in the examples/example_data_noveltyFiltering folder. There are two files located there:
 stream_text_data_encoded_to_SSPs.txt – pre-prepared binary data containing encoded information about word connections for 150 matrices with a size of 1200 connections (for processing on a logical field of 60x20 neurons).
 connections_dictionary.txt – a list of links encoded in this example.
 The .ini files of the program settings used to filter novelty.
 
 Forecasting
-To run the prediction example, you need to replace the files settings_common.ini, settings_rnn1.ini and settings_rnn2.ini in the main directory with those in the example_data_forecasting folder, and then call main.py and click the “BGN” button in the RNN-1 window. The processing of a sequence of 50 sets of words with a dictionary size of 1000 will begin, in which the prediction will be launched at 35, 40 and 45 steps. The prediction results will be output to the results_forecasting folder in a text file “results_xxxxxxxx.txt ”, where xxxxxxxx is the timestamp.
+To run the prediction example, you need to replace the files settings_common.ini, settings_rnn1.ini and settings_rnn2.ini in the main directory with those in the examples/example_data_forecasting folder, and then call main.py and click the “BGN” button in the RNN-1 window. The processing of a sequence of 50 sets of words with a dictionary size of 1000 will begin, in which the prediction will be launched at 35, 40 and 45 steps. The prediction results will be output to the results_forecasting folder in a text file “results_xxxxxxxx.txt ”, where xxxxxxxx is the timestamp.
 Metrics used to evaluate prediction accuracy include the percentage of misses (pe0) and the percentage of false positives (pe1).
 
 Time delays (ΔT) and novelty detection errors at different detection thresholds (Thr) are presented in the table
@@ -76,7 +76,7 @@ if you want to run library in novelty filtering processing type, and:
 
 python main_python.py --mode Predict
 
-for run in predict processing type. This examples got settings files from folders "example_data_noveltyFiltering" and "example_data_forecasting", respectively.
+for run in predict processing type. This examples got settings files from folders "exaples/example_data_noveltyFiltering" and "examples/example_data_forecasting", respectively.
 
 In addition, the main_python.py file is also an example of using the python API of the proposed library. The functions and variables of the python API are described in more detail in the corresponding wiki section of the documentation for this project.
 
