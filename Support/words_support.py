@@ -56,9 +56,7 @@ def words_pe0_pe1(real_ssps: str, pred_ssps: str, field_id: int, iterator: int, 
                  f'pe1 {"%.2f" % (np.sum(pe1)/len(pe1))}%'
     print(result_str)
 
-    if not os.path.exists('results_forecasting'):
-        os.mkdir('results_forecasting')
-    f = open(f'results_forecasting/results_{to_day_str}.txt', 'a')
-    f.write(result_str)
-    f.write('\n')
-    f.close()
+    os.makedirs('results_forecasting', exist_ok=True)
+    with open(f'results_forecasting/results_{to_day_str}.txt', 'a') as f:
+        f.write(result_str)
+        f.write('\n')

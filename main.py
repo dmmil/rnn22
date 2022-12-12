@@ -102,96 +102,62 @@ class GUI(QtWidgets.QMainWindow):
         plt.plot(data)
         plt.show()
 
+    def correct_horizontal_scroll_bar(
+            self, scene: GraphScene, bar: QtWidgets.QGraphicsView,
+            _min: float, _max: float):
+        [pixel_size_height, pixel_size_wigth, coord_y, coord_x] = \
+            scene.get_scroll_params()
+        delta = coord_x - pixel_size_wigth / 2
+        value = delta + _max / 2
+        value = max(_min, value)
+        value = min(_max, value)
+        bar.horizontalScrollBar().setValue(int(value))
+
+    def correct_vertical_scroll_bar(
+            self, scene: GraphScene, bar: QtWidgets.QGraphicsView,
+            _min: float, _max: float):
+        [pixel_size_height, pixel_size_wigth, coord_y, coord_x] = \
+            scene.get_scroll_params()
+        delta = coord_y - pixel_size_height / 2
+        value = delta + _max / 2
+        value = max(_min, value)
+        value = min(_max, value)
+        bar.verticalScrollBar().setValue(int(value))
+
     def graphics_view_scroll_changed(self, _min: float, _max: float):
         sender = self.sender()
         if sender == self.ui.graphicsView_rnn1_lr1.horizontalScrollBar():
-            [pixel_size_height, pixel_size_wigth, coord_y, coord_x] = \
-                self.graph_scene_rnn1_lr1.get_scroll_params()
-            delta = coord_x - pixel_size_wigth / 2
-            value = delta + _max / 2
-            if value < _min:
-                value = _min
-            if value > _max:
-                value = _max
-            self.ui.graphicsView_rnn1_lr1.horizontalScrollBar()\
-                .setValue(int(value))
-        elif sender == self.ui.graphicsView_rnn1_lr1.verticalScrollBar():
-            [pixel_size_height, pixel_size_wigth, coord_y, coord_x] = \
-                self.graph_scene_rnn1_lr1.get_scroll_params()
-            delta = coord_y - pixel_size_height / 2
-            value = delta + _max / 2
-            if value < _min:
-                value = _min
-            if value > _max:
-                value = _max
-            self.ui.graphicsView_rnn1_lr1.horizontalScrollBar()\
-                .setValue(int(value))
+            self.correct_horizontal_scroll_bar(
+                self.graph_scene_rnn1_lr1,
+                self.ui.graphicsView_rnn1_lr1, _min, _max)
         elif sender == self.ui.graphicsView_rnn1_lr2.horizontalScrollBar():
-            [pixel_size_height, pixel_size_wigth, coord_y, coord_x] = \
-                self.graph_scene_rnn1_lr2.get_scroll_params()
-            delta = coord_x - pixel_size_wigth / 2
-            value = delta + _max / 2
-            if value < _min:
-                value = _min
-            if value > _max:
-                value = _max
-            self.ui.graphicsView_rnn1_lr2.horizontalScrollBar()\
-                .setValue(int(value))
+            self.correct_horizontal_scroll_bar(
+                self.graph_scene_rnn1_lr2,
+                self.ui.graphicsView_rnn1_lr2, _min, _max)
+        elif sender == self.ui.graphicsView_rnn2_lr1.horizontalScrollBar():
+            self.correct_horizontal_scroll_bar(
+                self.graph_scene_rnn2_lr1,
+                self.ui.graphicsView_rnn2_lr1, _min, _max)
+        elif sender == self.ui.graphicsView_rnn2_lr2.horizontalScrollBar():
+            self.correct_horizontal_scroll_bar(
+                self.graph_scene_rnn2_lr2,
+                self.ui.graphicsView_rnn2_lr2, _min, _max)
+        elif sender == self.ui.graphicsView_rnn1_lr1.verticalScrollBar():
+            self.correct_vertical_scroll_bar(
+                self.graph_scene_rnn1_lr1,
+                self.ui.graphicsView_rnn1_lr1, _min, _max)
         elif sender == self.ui.graphicsView_rnn1_lr2.verticalScrollBar():
-            [pixel_size_height, pixel_size_wigth, coord_y, coord_x] = \
-                self.graph_scene_rnn1_lr2.get_scroll_params()
-            delta = coord_y - pixel_size_height / 2
-            value = delta + _max / 2
-            if value < _min:
-                value = _min
-            if value > _max:
-                value = _max
-            self.ui.graphicsView_rnn1_lr2.horizontalScrollBar()\
-                .setValue(int(value))
-        elif sender == self.ui.graphicsView_rnn2_lr1.horizontalScrollBar():
-            [pixel_size_height, pixel_size_wigth, coord_y, coord_x] = \
-                self.graph_scene_rnn2_lr1.get_scroll_params()
-            delta = coord_x - pixel_size_wigth / 2
-            value = delta + _max / 2
-            if value < _min:
-                value = _min
-            if value > _max:
-                value = _max
-            self.ui.graphicsView_rnn2_lr1.horizontalScrollBar()\
-                .setValue(int(value))
+            self.correct_vertical_scroll_bar(
+                self.graph_scene_rnn1_lr2,
+                self.ui.graphicsView_rnn1_lr2, _min, _max)
         elif sender == self.ui.graphicsView_rnn2_lr1.verticalScrollBar():
-            [pixel_size_height, pixel_size_wigth, coord_y, coord_x] = \
-                self.graph_scene_rnn2_lr1.get_scroll_params()
-            delta = coord_y - pixel_size_height / 2
-            value = delta + _max / 2
-            if value < _min:
-                value = _min
-            if value > _max:
-                value = _max
-            self.ui.graphicsView_rnn2_lr1.horizontalScrollBar()\
-                .setValue(int(value))
-        elif sender == self.ui.graphicsView_rnn2_lr1.horizontalScrollBar():
-            [pixel_size_height, pixel_size_wigth, coord_y, coord_x] = \
-                self.graph_scene_rnn2_lr2.get_scroll_params()
-            delta = coord_x - pixel_size_wigth / 2
-            value = delta + _max / 2
-            if value < _min:
-                value = _min
-            if value > _max:
-                value = _max
-            self.ui.graphicsView_rnn2_lr1.horizontalScrollBar()\
-                .setValue(int(value))
-        elif sender == self.ui.graphicsView_rnn2_lr1.verticalScrollBar():
-            [pixel_size_height, pixel_size_wigth, coord_y, coord_x] = \
-                self.graph_scene_rnn2_lr2.get_scroll_params()
-            delta = coord_y - pixel_size_height / 2
-            value = delta + _max / 2
-            if value < _min:
-                value = _min
-            if value > _max:
-                value = _max
-            self.ui.graphicsView_rnn2_lr1.horizontalScrollBar()\
-                .setValue(int(value))
+            self.correct_vertical_scroll_bar(
+                self.graph_scene_rnn2_lr1,
+                self.ui.graphicsView_rnn2_lr1, _min, _max)
+        elif sender == self.ui.graphicsView_rnn2_lr2.verticalScrollBar():
+            self.correct_vertical_scroll_bar(
+                self.graph_scene_rnn2_lr2,
+                self.ui.graphicsView_rnn2_lr2, _min, _max)
 
     def refresh_rnn_params(self):
         sender = self.sender()

@@ -194,16 +194,13 @@ class WordConnectionsIODevice(AbstractIODevice):
                                                    last_steps_analyzed:len0]
             today = datetime.datetime.today()
             to_day_str = today.strftime("%Y-%m-%d-%H-%M-%S")
-            if not os.path.exists('results_noveltyFiltering'):
-                os.mkdir('results_noveltyFiltering')
-            f = open(f'results_noveltyFiltering/results_{to_day_str}.txt', 'w')
-
-            for i in range(len(field_last_steps)):
-                print(
-                    f'\n\nfield {field_id} step {self.iterator + i} results:')
-                print(field_last_steps[i])
-                print('\n')
-                f.write(f'field {field_id} step {self.iterator + i} results:')
-                f.write(field_last_steps[i])
-                f.write('\n')
-            f.close()
+            os.makedirs('results_noveltyFiltering', exist_ok=True)
+            with open(f'results_noveltyFiltering/results_{to_day_str}.txt', 'w') as f:
+                for i in range(len(field_last_steps)):
+                    print(
+                        f'\n\nfield {field_id} step {self.iterator + i} results:')
+                    print(field_last_steps[i])
+                    print('\n')
+                    f.write(f'field {field_id} step {self.iterator + i} results:')
+                    f.write(field_last_steps[i])
+                    f.write('\n')
