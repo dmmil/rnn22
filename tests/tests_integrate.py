@@ -1,10 +1,12 @@
 import os
-os.chdir('..')
-
+import sys
 from main_python import Main
 
 
 def test_answer():
+
+    sys.path.append(os.path.join(sys.path[0], '..'))
+
     app = Main('Predict',
                'example_data_forecasting/settings_common.ini',
                'example_data_forecasting/settings_rnn1.ini',

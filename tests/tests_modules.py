@@ -1,5 +1,5 @@
 import os
-os.chdir('..')
+import sys
 
 from Core.Rnn1Core import Rnn1Core
 from Core.Rnn2Core import Rnn2Core
@@ -7,6 +7,8 @@ from Core.Params import CommonParams, Rnn1Params, Rnn2Params
 
 
 def test_answer():
+
+    sys.path.append(os.path.join(sys.path[0], '..'))
 
     params = CommonParams('example_data_forecasting/settings_common.ini')
     params.rewrite()
