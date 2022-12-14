@@ -33,10 +33,12 @@ The component implementing the algorithm for modeling n-instances of a neural ne
 The input and output data of the component are aggregates of single pulses, which are arrays of binary data of size d×q×K, where d, q are the dimensions of the logical field of the RNN, K is the number of SSP in the sample.
 
 ## Demo
-The system is already configured to run an example of novelty filtering in a text data stream.
-The program is launched by executing a script main.py . A GUI window will open, consisting of 3 main areas: 1 – basic tinctures, 2 and 3 – visualization of layers of RNN-1 and RNN-2, respectively.
+The system is already configured to run an example of novelty filtering or predicting in a text data stream.
+To run the novelty detection example, you need to replace the files settings_common.ini, settings_rnn1.ini and settings_rnn2.ini in the main directory with those in the examples/example_data_noveltyFiltering folder.
+The program is launched by executing a script main.py. A GUI window will open, consisting of 3 main areas: 1 – basic tinctures, 2 and 3 – visualization of layers of RNN-1 and RNN-2, respectively.
 
 ![docs/img_0.png](docs/img_0.png)
+
 
 In area 2, you need to click the “BGN” button, and the program execution will begin.
 In the process of execution, text data in encoded form passes through RNN-1 and the dynamics of changes in weights is analyzed. When the novelty detection threshold is exceeded, data from RNN-1 is copied to RNN-2 and filtering is started. Filtered word associations representing novelty are output to the results_noveltyFiltering folder in a text file “results_xxxxxxxx.txt ”, where xxxxxxxx is the timestamp. At the end of processing the text stream, a graph with the history of the dynamics of changes in the weights of the synapses of the neural network system will also be displayed:
@@ -59,6 +61,8 @@ Metrics used to evaluate prediction accuracy include the percentage of misses (p
 Time delays (ΔT) and novelty detection errors at different detection thresholds (Thr) are presented in the table
 
 ![docs/img_3.png](docs/img_3.png)
+
+For a detailed description of the examples, see the documentation wiki in the Examples section.
 
 ## How-to-use-from-gui
 
