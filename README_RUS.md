@@ -13,12 +13,12 @@
 
 ## Содержание
 
-1. [Описание](#Description)
-2. [Демо](#Demo)
-3. [Как-использовать-с-ГУИ](#How-to-use-from-gui)
-4. [Как-использовать-из-Python](#How-to-use-from-python)
-5. [Как-использовать-со-своими-данными](#How-to-use-with-custom-data)
-6. [Библиография](#Bibliography)
+1. [Description](#Описание)
+2. [Demo](#Демо)
+3. [How-to-use-from-gui](#Как-использовать-с-ГУИ)
+4. [How-to-use-from-python](#Как-использовать-из-Python)
+5. [How-to-use-with-custom-data](#Как-использовать-со-своими-данными)
+6. [Bibliography](#Библиография)
 
 
 ## Description
