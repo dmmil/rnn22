@@ -3,8 +3,8 @@ name: Mirror repo to GitLab
 on: [push, pull_request, delete]
 
 jobs:
-  call-nss-ops-mirror-workflow:
-    uses: itmo-sai-code/.github/workflows/mirror-repo.yml@master
+  call-mirror-workflow:
+    uses: ITMO-NSS-team/NSS-Ops/.github/workflows/mirror-repo.yml@master
     with:
       GITLAB_URL: 'https://gitlab.actcognitive.org/itmo-sai-code/rnn_text_stream_analyzer'
     secrets:
