@@ -1,0 +1,24 @@
+name: Mirror repo to GitLab
+
+on:
+  workflow_call:
+    secrets:
+      GITLAB_USER:
+        required: true
+      GITLAB_PASSWORD:
+        required: true
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+  delete:
+    branches: ['main']
+
+jobs:
+  call-oceanai-mirror-workflow:
+    uses: dmmil/rnn_text_stream_analyzer/.github/workflows/mirror-repo.yml@main
+    with:
+      GITLAB_URL: 'https://gitlab.actcognitive.org/itmo-sai-code/rnn_text_stream_analyzer.git'
+    secrets:
+      GITLAB_USER: ${{ secrets.GITLAB_USER }}
+      GITLAB_PASSWORD: ${{ secrets.GITLAB_PASSWORD }}
