@@ -16,7 +16,7 @@ on:
 
 jobs:
   call-rnntextstreamanalyzer-mirror-workflow:
-    uses: dmmil/rnn_text_stream_analyzer/.github/workflows/mirror-repo.yml@main
+    uses: ITMO-NSS-team/NSS-Ops/.github/workflows/mirror-repo.yml@master
     with:
       GITLAB_URL: 'https://gitlab.actcognitive.org/itmo-sai-code/rnn_text_stream_analyzer.git'
     secrets:
