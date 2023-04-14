@@ -13,8 +13,8 @@ This program implements the neural network [1] and implements the functionality 
 
 1. [Description](#description)
 2. [Demo](#demo)
-3. [How to use from gui](#how-to-use-from-gui)
-4. [How to use from cli](#how-to-use-from-cli)
+3. [How to use from GUI](#how-to-use-from-gui)
+4. [How to use from CLI](#how-to-use-from-cli)
 5. [How to use with custom data](#how-to-use-with-custom-data)
 6. [Bibliography](#bibliography)
 
@@ -62,13 +62,13 @@ Time delays (ΔT) and novelty detection errors at different detection thresholds
 
 For a detailed description of the examples, see the documentation wiki in the Examples section.
 
-## How to use from gui
+## How to use from GUI
 
 1. Install Python 3.8
 2. Install requirements (see requirements.txt)
 3. Run main.py
 
-## How to use from cli
+## How to use from CLI
 
 You can run the library functions without a graphical interface, via the command line. To do this, enter the command:
 
