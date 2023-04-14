@@ -16,7 +16,9 @@ This program implements the neural network [1] and implements the functionality 
 3. [How to use from GUI](#how-to-use-from-gui)
 4. [How to use from CLI](#how-to-use-from-cli)
 5. [How to use with custom data](#how-to-use-with-custom-data)
-6. [Bibliography](#bibliography)
+6. [Developers](#developers)
+7. [Supported by](#supported-by)
+8. [Bibliography](#bibliography)
 
 
 ## Description
