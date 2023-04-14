@@ -1,15 +1,13 @@
+[![SAI](https://github.com/ITMO-NSS-team/open-source-ops/blob/master/badges/SAI_badge_flat.svg)](https://sai.itmo.ru/)
+[![ITMO](https://github.com/ITMO-NSS-team/open-source-ops/blob/master/badges/ITMO_badge_flat_rus.svg)](https://en.itmo.ru/en/)
+
+[![license](https://img.shields.io/github/license/dmmil/rnn_text_stream_analyzer)](https://github.com/dmmil/rnn_text_stream_analyzer/blob/main/LICENSE)
+[![Eng](https://img.shields.io/badge/lang-ru-yellow.svg)](/README.md)
+[![Mirror](https://camo.githubusercontent.com/9bd7b8c5b418f1364e72110a83629772729b29e8f3393b6c86bff237a6b784f6/68747470733a2f2f62616467656e2e6e65742f62616467652f6769746c61622f6d6972726f722f6f72616e67653f69636f6e3d6769746c6162)](https://gitlab.actcognitive.org/itmo-sai-code/rnn_text_stream_analyzer)
+
 # Neural network system for forecasting and novelty filtering in text data
 
 This program implements the neural network [1] and implements the functionality described in the articles [2, 3]. On top of this, within the Research Center, new rules for associative interaction of signals in the RNN and neural network management have been developed and implemented programmatically, allowing both to predict the content of news and to evaluate and highlight novelty from text news streams. A new criterion for the novelty of texts processed in the RNN has been implemented.
-
-The project is developed and maintained by the research team, which is a part of the Research Center "Strong Artificial Intelligence in Industry" (ITMO University)
-Site: https://sai.itmo.ru/
-
-Author - Dmitriy Miloserdov (SPC RAS). 
-
-License: BSD-3
-
-![docs/img_4.png](docs/img_4.png)
 
 ## Contents
 
@@ -99,6 +97,15 @@ list_size = d * q
 Then you need to select the processing mode in the MainParams/processing_type variable (Novelty filter or Predict), specify the paths to the corresponding files in the settings_rnn1.ini file in the IOParams/dictionary_filename and IOParams/input_data_filename parameters, and start data processing.
 
 For more information about the settings in the ini files, see the wiki documentation in the section named INI files structure.
+
+## Developers
+
+Author - Dmitriy Miloserdov (SPC RAS). 
+
+## Supported by
+
+The study is supported by the [Research Center Strong Artificial Intelligence in Industry](https://sai.itmo.ru/) 
+of [ITMO University](https://en.itmo.ru/) as part of the plan of the center's program: Development and testing of an experimental sample of a library of strong AI algorithms in terms of intelligent detection of events and meanings based on multimodal data (text, sound, images in different ranges) for tasks of recognizing operating modes and hardware malfunctions.
 
 ## Bibliography
 
