@@ -11,12 +11,12 @@ This program implements the neural network [1] and implements the functionality 
 
 ## Contents
 
-1. [Description](#Description)
-2. [Demo](#Demo)
-3. [How-to-use-from-gui](#How-to-use-from-gui)
-4. [How-to-use-from-python](#How-to-use-from-python)
-5. [How-to-use-with-custom-data](#How-to-use-with-custom-data)
-6. [Bibliography](#Bibliography)
+1. [Description](#description)
+2. [Demo](#demo)
+3. [How to use from gui](#how-to-use-from-gui)
+4. [How to use from cli](#how-to-use-from-cli)
+5. [How to use with custom data](#how-to-use-with-custom-data)
+6. [Bibliography](#bibliography)
 
 
 ## Description
@@ -62,13 +62,13 @@ Time delays (ΔT) and novelty detection errors at different detection thresholds
 
 For a detailed description of the examples, see the documentation wiki in the Examples section.
 
-## How-to-use-from-gui
+## How to use from gui
 
 1. Install Python 3.8
 2. Install requirements (see requirements.txt)
 3. Run main.py
 
-## How-to-use-from-python
+## How to use from cli
 
 You can run the library functions without a graphical interface, via the command line. To do this, enter the command:
 
@@ -82,7 +82,7 @@ for run in predict processing type. This examples got settings files from folder
 
 In addition, the main_python.py file is also an example of using the python API of the proposed library. The functions and variables of the python API are described in more detail in the corresponding wiki section of the documentation for this project.
 
-## How-to-use-with-custom-data
+## How to use with custom data
 
 You can use this library to process your custom news data samples for forecasting or novelty filtering purposes.
 
